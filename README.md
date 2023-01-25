@@ -1,49 +1,23 @@
-E-commerce store built with Next.js and Stripe checkout by [AlterClass.io](https://alterclass.io).
+# Junkerri Art
 
-- Learn to build this application step-by-step by following the tutorial on [AlterClass](https://alterclass.io/tutorials/create-an-ecommerce-website-with-nextjs-and-stripe).
+Welcome to Junkerri Art, our ecommerce store for thriving local artists! Our platform is built with [Next.js](https://nextjs.org/) and integrated with [Stripe.js](https://stripe.com/docs/stripe-js) for secure and easy online payments.
 
-- Preview the app live [here](https://myplantshop.vercel.app/).
+## Features
 
-- Deploy the same app using Vercel:
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/AlterClassIO/ecommerce-nextjs-stripe-checkout&project-name=eCommerce+Store+by+AlterClass&repository-name=eCommerce+Store+by+AlterClass)
+- Browse and purchase unique and one-of-a-kind artwork from talented artists in your community
+- Secure checkout with Stripe.js
+- Easy navigation and filtering options to find the perfect piece
 
 ## Getting Started
 
-### 1. Clone the repository and install dependencies
+To start browsing and shopping, simply visit our website and create an account. From there, you can start browsing and adding items to your cart. When you're ready to checkout, you'll be prompted to enter your payment information and complete the transaction.
 
-```
-git clone https://github.com/AlterClassIO/ecommerce-nextjs-stripe-checkout
-cd ecommerce-nextjs-stripe-checkout
-npm install
-```
+We're constantly working to improve the platform and add new features, so be sure to check back often for updates!
 
-### 2. Configure your local environment
+Thank you for supporting local artists!
 
-Rename the `.env.local.example` file in this directory to `.env.local` (which will
-be ignored by Git):
+## Social Media
 
-```
-cp .env.local.example .env.local
-```
-
-Add your own values for all the environment variables.
-
-### 3. Start the application
-
-To run your site locally, use:
-
-```
-npm run dev
-```
-
-To run it in production mode, use:
-
-```
-npm run build
-npm run start
-```
-
-## License
-
-[MIT](https://github.com/AlterClassIO/ecommerce-nextjs-stripe-checkout/blob/master/LICENSE)
+- Follow us on [Instagram](https://www.instagram.com/)
+- Like us on [Facebook](https://www.facebook.com/)
+- Follow us on [Twitter](https://twitter.com/)
