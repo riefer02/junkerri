@@ -1,5 +1,5 @@
-import { StarIcon as EmptyStarIcon } from '@heroicons/react/outline';
-import { StarIcon } from '@heroicons/react/solid';
+import { StarIcon as EmptyStarIcon } from '@heroicons/react/24/outline';
+import { StarIcon } from '@heroicons/react/24/solid';
 
 const Rating = ({ rate = 0, count = 0, max = 5 }) => {
   const roundedRate = Math.round(rate);
