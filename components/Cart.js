@@ -12,6 +12,7 @@ import {
   MinusSmallIcon,
   PlusSmallIcon,
 } from "@heroicons/react/24/solid";
+import { data } from "autoprefixer";
 
 const Cart = () => {
   const { cartDetails, totalPrice, cartCount, addItem, removeItem, clearCart } =
@@ -28,7 +29,6 @@ const Cart = () => {
         quantity,
       })),
     });
-
     // Redirect to checkout
     const stripe = await getStripe();
     await stripe.redirectToCheckout({ sessionId: id });
