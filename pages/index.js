@@ -1,6 +1,5 @@
 import { useState } from "react";
 import dynamic from "next/dynamic";
-// import { ProductCard } from '@/components/index';
 
 const ProductCard = dynamic(() => import("@/components/ProductCard"), {
   ssr: false,

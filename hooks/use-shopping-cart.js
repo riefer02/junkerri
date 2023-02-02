@@ -1,5 +1,5 @@
-import React, { useContext, useReducer, useMemo } from 'react';
-import useLocalStorageReducer from './use-local-storage-reducer';
+import React, { useContext, useMemo } from "react";
+import useLocalStorageReducer from "./use-local-storage-reducer";
 
 // Reducers
 const initialCartValues = {
@@ -81,11 +81,11 @@ const clearCart = () => {
 
 const cartReducer = (state = {}, action) => {
   switch (action.type) {
-    case 'ADD_ITEM':
+    case "ADD_ITEM":
       return addItem(state, action.product, action.quantity);
-    case 'REMOVE_ITEM':
+    case "REMOVE_ITEM":
       return removeItem(state, action.product, action.quantity);
-    case 'CLEAR_CART':
+    case "CLEAR_CART":
       return clearCart();
     default:
       return state;
@@ -95,9 +95,9 @@ const cartReducer = (state = {}, action) => {
 // Context + Provider
 const CartContext = React.createContext();
 
-export const CartProvider = ({ currency = 'USD', children = null }) => {
+export const CartProvider = ({ currency = "USD", children = null }) => {
   const [cart, dispatch] = useLocalStorageReducer(
-    'cart',
+    "cart",
     cartReducer,
     initialCartValues
   );
@@ -123,12 +123,12 @@ export const useShoppingCart = () => {
   const [cart, dispatch] = useContext(CartContext);
 
   const addItem = (product, quantity = 1) =>
-    dispatch({ type: 'ADD_ITEM', product, quantity });
+    dispatch({ type: "ADD_ITEM", product, quantity });
 
   const removeItem = (product, quantity = 1) =>
-    dispatch({ type: 'REMOVE_ITEM', product, quantity });
+    dispatch({ type: "REMOVE_ITEM", product, quantity });
 
-  const clearCart = () => dispatch({ type: 'CLEAR_CART' });
+  const clearCart = () => dispatch({ type: "CLEAR_CART" });
 
   const shoppingCart = {
     ...cart,
