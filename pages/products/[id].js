@@ -64,10 +64,11 @@ const Product = (props) => {
           {/* Product's image */}
 
           <div
-            className="relative w-72 h-72 sm:w-96 sm:h-96"
+            className="relative w-72 h-72 sm:w-96 sm:h-96 pointer-events-none sm:pointer-events-auto sm:cursor-zoom-in"
             onClick={() =>
               openModal(true, {
                 image: `${window.location.origin}${props.image}`,
+                name: props.name || "",
               })
             }
           >
