@@ -11,7 +11,7 @@ const NextHead = ({ title, description, keywords, image, url, author }) => {
   const baseURL =
     process.env.NODE_ENV === "development"
       ? "http://localhost:3000/"
-      : "https://junkerriart.com";
+      : "https://junkerri.com";
   const ogURL = `${baseURL}junkerri-open-graph.jpg`;
 
   return (
