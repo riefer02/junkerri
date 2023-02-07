@@ -47,7 +47,7 @@ const products = {
   ],
   production: [
     {
-      id: "price_1MUHhrKDgRurOd7XxvaL3k9g",
+      id: "price_1MYgmgKDgRurOd7XyDJBzREp",
       name: "Abandoned Attraction",
       price: 3500,
       currency: "USD",
@@ -58,7 +58,7 @@ const products = {
       },
     },
     {
-      id: "price_1MWmvDKDgRurOd7Xp4GtsZxy",
+      id: "price_1MYgnwKDgRurOd7XbmZo2gqE",
       name: "Transformers",
       price: 3500,
       currency: "USD",
@@ -69,7 +69,7 @@ const products = {
       },
     },
     {
-      id: "price_1MWmupKDgRurOd7XgokBdVWL",
+      id: "price_1MYgohKDgRurOd7XUZ89Nr7d",
       name: "Forsaken Magic",
       price: 3500,
       currency: "USD",
@@ -80,7 +80,7 @@ const products = {
       },
     },
     {
-      id: "price_1MWmtwKDgRurOd7X22avXwdd",
+      id: "price_1MYgpSKDgRurOd7XOuJ07e5N",
       name: "Wistful Whispers",
       price: 3500,
       currency: "USD",
