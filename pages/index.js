@@ -1,16 +1,9 @@
 import { useState } from "react";
 import dynamic from "next/dynamic";
-
+import NextHead from "@/components/Head";
 const ProductCard = dynamic(() => import("@/components/ProductCard"), {
   ssr: false,
 });
-
-const NextHead = dynamic(
-  () => {
-    return import("@/components/Head");
-  },
-  { ssr: false }
-);
 
 import products from "products";
 
