@@ -69,7 +69,7 @@ const ProductCard = (props) => {
       {/* Name + Rating */}
       <div className="mt-4 sm:mt-8">
         <p className="font-semibold text-lg capitalize">{props.name}</p>
-        <Rating rate={props?.rating?.rate} count={props?.rating?.count} />
+        {/* <Rating rate={props?.rating?.rate} count={props?.rating?.count} /> */}
       </div>
 
       {/* Price + CTA */}
