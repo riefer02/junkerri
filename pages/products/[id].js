@@ -7,6 +7,7 @@ import Head from "next/head";
 import { formatCurrency } from "@/lib/utils";
 import { MinusSmallIcon, PlusSmallIcon } from "@heroicons/react/24/solid";
 import { useModal } from "@/hooks/use-modal";
+import { blurPlaceholderImg } from "@/lib/placeholder";
 
 import products from "products";
 
@@ -72,7 +73,14 @@ const Product = (props) => {
               })
             }
           >
-            <Image src={props.image} alt={props.name} fill />
+            <Image
+              src={props.image}
+              alt={props.name}
+              fill
+              style={{ objectFit: "contain" }}
+              placeholder={"blur"}
+              blurDataURL={blurPlaceholderImg}
+            />
           </div>
 
           {/* Product's details */}

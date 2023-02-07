@@ -5,7 +5,6 @@ import { useOnClickOutside } from "@/hooks/use-on-click-outside";
 export const Modal = () => {
   const { isActive, modalData, closeModal } = useModal();
   const ref = useRef(null);
-  console.log({ modalData });
   useOnClickOutside(ref, () => closeModal());
 
   if (isActive)

@@ -12,6 +12,7 @@ import {
   MinusSmallIcon,
   PlusSmallIcon,
 } from "@heroicons/react/24/solid";
+import { blurPlaceholderImg } from "@/lib/placeholder";
 
 const Cart = () => {
   const { cartDetails, totalPrice, cartCount, addItem, removeItem, clearCart } =
@@ -79,7 +80,14 @@ const Cart = () => {
                   className="flex items-center space-x-4 group"
                 >
                   <div className="relative w-20 h-20 group-hover:scale-110 transition-transform">
-                    <Image src={product.image} alt={product.name} fill />
+                    <Image
+                      src={product.image}
+                      alt={product.name}
+                      fill
+                      style={{ objectFit: "contain" }}
+                      placeholder={"blur"}
+                      blurDataURL={blurPlaceholderImg}
+                    />
                   </div>
                   <p className="hidden sm:block font-semibold text-xl group-hover:underline">
                     {product.name}

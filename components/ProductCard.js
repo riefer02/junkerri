@@ -5,9 +5,7 @@ import { toast } from "react-hot-toast";
 import { useShoppingCart } from "@/hooks/use-shopping-cart";
 import { formatCurrency } from "@/lib/utils";
 import { Rating } from "@/components/index";
-
-const blurPlaceholderImg =
-  "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAmACYDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwCuqHNWY0NOWPmrUUVTJ6lRWhGIzimtGa0Fi4pkkWBWyehzSXvGay80VO6c0VzN6nSo6D1XmrMQqGnq+KmT1NEtC6uMVFKRimCXioZZeK1UtDBx1IpDzRVeSXmism9TdbFs0wmiis5DQhc1BI5ooqoiZUdjmiiikxn/2Q==";
+import { blurPlaceholderImg } from "@/lib/placeholder";
 
 const ProductCard = (props) => {
   const { cartCount, addItem } = useShoppingCart();
@@ -67,7 +65,6 @@ const ProductCard = (props) => {
           fill
           style={{ objectFit: "contain" }}
           placeholder={"blur"}
-          // blurDataURL={`/_next/image?url=${props.image}&w=16&q=1`}
           blurDataURL={blurPlaceholderImg}
         />
       </div>
