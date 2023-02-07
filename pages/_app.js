@@ -24,11 +24,12 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <title>
-          E-commerce store built with Next.js and Stripe checkout | Junkerri
+          Junkerri Art | Playful Abstract Creations by Nepali Artist Aastha
+          Karki
         </title>
         <meta
           name="description"
-          content="E-commerce store built with Next.js and Stripe checkout by riefer.io"
+          content="Discover the vibrant and captivating world of Junkerri Art, brought to life by the talented Nepali artist, Aastha Karki. Immerse yourself in Aastha's playful abstract works that seamlessly blend color and form, creating an enthralling experience for all who behold them. Explore the unique and beautiful creations of Junkerri Art today."
         />
         <link rel="icon" href="/favicon.ico" />
         <link
@@ -48,7 +49,7 @@ function MyApp({ Component, pageProps }) {
           sizes="16x16"
           href="/favicon-16x16.png"
         />
-        <link rel="manifest" href="/site.webmanifest"/>
+        <link rel="manifest" href="/site.webmanifest" />
       </Head>
       <style jsx global>{`
         html {
