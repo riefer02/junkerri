@@ -8,11 +8,18 @@ const NextHead = ({ title, description, keywords, image, url, author }) => {
   const defaultTitle =
     "Junkerri Art | Playful Abstract Creations by Nepali Artist Aastha Karki";
 
-  const baseURL =
-    process.env.NODE_ENV === "development"
-      ? "http://localhost:3000/"
-      : "https://junkerri.com/";
+  let baseURL;
+  if (process.env.NODE_ENV) {
+    baseURL =
+      process.env.NODE_ENV === "development"
+        ? "http://localhost:3000/"
+        : "https://junkerri.com/";
+  } else {
+    baseUrl = "http://localhost:3000/";
+  }
+
   const ogURL = `${baseURL}junkerri-open-graph.jpg`;
+  console.log({ env: process.env.NODE_ENV });
 
   return (
     <Head>
