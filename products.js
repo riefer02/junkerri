@@ -90,6 +90,50 @@ const products = {
         rate: 4.5,
       },
     },
+    {
+      id: "price_1MYwdeKDgRurOd7XaUJ75YVv",
+      name: "After Hours",
+      price: 3500,
+      currency: "USD",
+      image: "/art/after-hours.jpg",
+      rating: {
+        count: 85,
+        rate: 4.5,
+      },
+    },
+     {
+      id: "price_1MYwf0KDgRurOd7XBm6haIlp",
+      name: "Interlude",
+      price: 3500,
+      currency: "USD",
+      image: "/art/interlude.jpg",
+      rating: {
+        count: 85,
+        rate: 4.5,
+      },
+    },
+     {
+      id: "price_1MYwfgKDgRurOd7X9xmajQtl",
+      name: "Flat Feelings",
+      price: 3500,
+      currency: "USD",
+      image: "/art/flat-feelings.jpg",
+      rating: {
+        count: 85,
+        rate: 4.5,
+      },
+    },
+     {
+      id: "price_1MYwgSKDgRurOd7XbQNUfMfa",
+      name: "Love and Death",
+      price: 3500,
+      currency: "USD",
+      image: "/art/love-and-death.jpg",
+      rating: {
+        count: 85,
+        rate: 4.5,
+      },
+    },
   ],
 };
 
