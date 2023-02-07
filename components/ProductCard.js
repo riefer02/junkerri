@@ -27,6 +27,7 @@ const ProductCard = (props) => {
   };
 
   useEffect(() => {
+    let timeout;
     if (firstRun.current) {
       firstRun.current = false;
       return;
@@ -34,14 +35,20 @@ const ProductCard = (props) => {
 
     if (adding) {
       setAdding(false);
-      toast.success(`${props.name} added`, {
-        id: toastId.current,
-      });
+      timeout = setTimeout(
+        () =>
+          toast.success(`${props.name} added`, {
+            id: toastId.current,
+          }),
+        2000
+      );
     }
 
     if (typeof props.onAddEnded === "function") {
       props.onAddEnded();
     }
+
+    return () => clearTimeout(timeout);
   }, [cartCount]);
 
   return (
@@ -54,15 +61,15 @@ const ProductCard = (props) => {
         <Image
           src={props.image}
           alt={props.name}
-          layout="fill"
-          objectFit="contain"
+          fill
+          style={{ objectFit: "contain" }}
         />
       </div>
 
       {/* Name + Rating */}
       <div className="mt-4 sm:mt-8">
         <p className="font-semibold text-lg capitalize">{props.name}</p>
-        <Rating rate={props?.rating?.rate} count={props?.rating?.count} />
+        {/* <Rating rate={props?.rating?.rate} count={props?.rating?.count} /> */}
       </div>
 
       {/* Price + CTA */}

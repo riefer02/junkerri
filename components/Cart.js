@@ -28,7 +28,6 @@ const Cart = () => {
         quantity,
       })),
     });
-
     // Redirect to checkout
     const stripe = await getStripe();
     await stripe.redirectToCheckout({ sessionId: id });
@@ -39,7 +38,7 @@ const Cart = () => {
       <Head>
         <title>My Shopping Cart | Junkerri</title>
       </Head>
-      <div className="container xl:max-w-screen-xl mx-auto py-12 px-6">
+      <div className="container xl:max-w-screen-xl mx-auto py-12 px-4 sm:px-6">
         {cartCount > 0 ? (
           <>
             <h2 className="text-4xl font-semibold">Your shopping cart</h2>
@@ -80,51 +79,54 @@ const Cart = () => {
                   className="flex items-center space-x-4 group"
                 >
                   <div className="relative w-20 h-20 group-hover:scale-110 transition-transform">
-                    <Image
-                      src={product.image}
-                      alt={product.name}
-                      layout="fill"
-                      objectFit="contain"
-                    />
+                    <Image src={product.image} alt={product.name} fill />
                   </div>
-                  <p className="font-semibold text-xl group-hover:underline">
+                  <p className="hidden sm:block font-semibold text-xl group-hover:underline">
                     {product.name}
                   </p>
                 </Link>
 
                 {/* Price + Actions */}
-                <div className="flex items-center">
-                  {/* Quantity */}
-                  <div className="flex items-center space-x-3">
+
+                <div className="flex flex-col flex-grow justify-between sm:flex-row items-center">
+                  <p className="block sm:hidden font-semibold text-xl group-hover:underline">
+                    {product.name}
+                  </p>
+                  <div className="flex items-center w-full justify-between sm:justify-end sm:gap-8">
+                    {/* Quantity */}
+                    <div className="flex items-center space-x-3">
+                      <button
+                        onClick={() => removeItem(product)}
+                        disabled={product?.quantity <= 1}
+                        className="disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-current hover:bg-rose-100 hover:text-rose-500 rounded-md p-1"
+                      >
+                        <MinusSmallIcon className="w-6 h-6 flex-shrink-0" />
+                      </button>
+                      <p className="font-semibold text-xl">
+                        {product.quantity}
+                      </p>
+                      <button
+                        onClick={() => addItem(product)}
+                        className="hover:bg-green-100 hover:text-green-500 rounded-md p-1"
+                      >
+                        <PlusSmallIcon className="w-6 h-6 flex-shrink-0 " />
+                      </button>
+                    </div>
+
+                    {/* Price */}
+                    <p className="font-semibold text-xl">
+                      <XMarkIcon className="hidden sm:inline-block w-4 h-4 mr-2 text-gray-500" />
+                      {formatCurrency(product.price)}
+                    </p>
+
+                    {/* Remove item */}
                     <button
-                      onClick={() => removeItem(product)}
-                      disabled={product?.quantity <= 1}
-                      className="disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-current hover:bg-rose-100 hover:text-rose-500 rounded-md p-1"
+                      onClick={() => removeItem(product, product.quantity)}
+                      className="ml-4 hover:text-rose-500"
                     >
-                      <MinusSmallIcon className="w-6 h-6 flex-shrink-0" />
-                    </button>
-                    <p className="font-semibold text-xl">{product.quantity}</p>
-                    <button
-                      onClick={() => addItem(product)}
-                      className="hover:bg-green-100 hover:text-green-500 rounded-md p-1"
-                    >
-                      <PlusSmallIcon className="w-6 h-6 flex-shrink-0 " />
+                      <XCircleIcon className="w-6 h-6 flex-shrink-0 opacity-50 hover:opacity-100 transition-opacity" />
                     </button>
                   </div>
-
-                  {/* Price */}
-                  <p className="font-semibold text-xl ml-16">
-                    <XMarkIcon className="w-4 h-4 text-gray-500 inline-block" />
-                    {formatCurrency(product.price)}
-                  </p>
-
-                  {/* Remove item */}
-                  <button
-                    onClick={() => removeItem(product, product.quantity)}
-                    className="ml-4 hover:text-rose-500"
-                  >
-                    <XCircleIcon className="w-6 h-6 flex-shrink-0 opacity-50 hover:opacity-100 transition-opacity" />
-                  </button>
                 </div>
               </div>
             ))}

@@ -6,20 +6,22 @@ import Image from "next/image";
 import Head from "next/head";
 import { formatCurrency } from "@/lib/utils";
 import { MinusSmallIcon, PlusSmallIcon } from "@heroicons/react/24/solid";
+import { useModal } from "@/hooks/use-modal";
 
 import products from "products";
 
 const Product = (props) => {
   const router = useRouter();
   const { cartCount, addItem } = useShoppingCart();
+  const { isActive, modalData, openModal, closeModal } = useModal();
   const [qty, setQty] = useState(1);
   const [adding, setAdding] = useState(false);
-
   const toastId = useRef();
   const firstRun = useRef(true);
 
   const handleOnAddToCart = () => {
     setAdding(true);
+
     toastId.current = toast.loading(
       `Adding ${qty} item${qty > 1 ? "s" : ""}...`
     );
@@ -27,16 +29,22 @@ const Product = (props) => {
   };
 
   useEffect(() => {
+    let timeout;
     if (firstRun.current) {
       firstRun.current = false;
       return;
     }
 
-    setAdding(false);
-    toast.success(`${qty} ${props.name} added`, {
-      id: toastId.current,
-    });
+    timeout = setTimeout(
+      () =>
+        toast.success(`${qty} ${props.name} added`, {
+          id: toastId.current,
+        }),
+      2000
+    );
+
     setQty(1);
+    return () => clearTimeout(timeout);
   }, [cartCount]);
 
   return router.isFallback ? (
@@ -51,20 +59,24 @@ const Product = (props) => {
       <Head>
         <title>{props.name} | Junkerri</title>
       </Head>
-      <div className="container lg:max-w-screen-lg mx-auto py-12 px-6">
+      <div className="container lg:max-w-screen-lg mx-auto py-12 px-4 sm:px-6">
         <div className="flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0 md:space-x-12">
           {/* Product's image */}
-          <div className="relative w-72 h-72 sm:w-96 sm:h-96">
-            <Image
-              src={props.image}
-              alt={props.name}
-              layout="fill"
-              objectFit="contain"
-            />
+
+          <div
+            className="relative w-72 h-72 sm:w-96 sm:h-96 pointer-events-none sm:pointer-events-auto sm:cursor-zoom-in"
+            onClick={() =>
+              openModal(true, {
+                image: `${window.location.origin}${props.image}`,
+                name: props.name || "",
+              })
+            }
+          >
+            <Image src={props.image} alt={props.name} fill />
           </div>
 
           {/* Product's details */}
-          <div className="flex-1 max-w-md border border-opacity-50 rounded-md shadow-lg p-6">
+          <div className="flex-1 max-w-md border border-opacity-50 rounded-md shadow-lg p-6 w-full">
             <h2 className="text-3xl font-semibold">{props.name}</h2>
             <p>
               <span className="text-gray-500">Availability:</span>{" "}
@@ -130,7 +142,6 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   try {
     const props = products?.find((product) => product.id === params.id) ?? {};
-    console.log({ props });
     return {
       props,
       // Next.js will attempt to re-generate the page:

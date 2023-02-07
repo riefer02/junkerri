@@ -9,7 +9,7 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 bg-white z-10 shadow">
-      <div className="container xl:max-w-screen-xl mx-auto p-6 flex justify-between">
+      <div className="container xl:max-w-screen-xl mx-auto p-4 flex justify-between">
         <Logo />
         <Link
           href="/cart"
