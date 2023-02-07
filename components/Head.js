@@ -15,7 +15,7 @@ const NextHead = ({ title, description, keywords, image, url, author }) => {
         ? "http://localhost:3000/"
         : "https://junkerri.com/";
   } else {
-    baseUrl = "http://localhost:3000/";
+    baseUrl = "https://junkerri.com/";
   }
 
   const ogURL = `${baseURL}junkerri-open-graph.jpg`;
