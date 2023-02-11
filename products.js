@@ -2,10 +2,10 @@ const products = {
   development: [
     {
       id: "price_1MUHhrKDgRurOd7XxvaL3k9g",
-      name: "Abandoned Attraction",
+      name: "Land Locked Blues",
       price: 3500,
       currency: "USD",
-      image: "/art/abandoned-attraction.jpg",
+      image: "/art/land-locked-blues.jpg",
       rating: {
         count: 85,
         rate: 4.5,
@@ -48,10 +48,10 @@ const products = {
   production: [
     {
       id: "price_1MYgmgKDgRurOd7XyDJBzREp",
-      name: "Abandoned Attraction",
+      name: "Land Locked Blues",
       price: 3500,
       currency: "USD",
-      image: "/art/abandoned-attraction.jpg",
+      image: "/art/land-locked-blues.jpg",
       rating: {
         count: 85,
         rate: 4.5,
@@ -101,7 +101,7 @@ const products = {
         rate: 4.5,
       },
     },
-     {
+    {
       id: "price_1MYwf0KDgRurOd7XBm6haIlp",
       name: "Interlude",
       price: 3500,
@@ -112,7 +112,7 @@ const products = {
         rate: 4.5,
       },
     },
-     {
+    {
       id: "price_1MYwfgKDgRurOd7X9xmajQtl",
       name: "Flat Feelings",
       price: 3500,
@@ -123,7 +123,7 @@ const products = {
         rate: 4.5,
       },
     },
-     {
+    {
       id: "price_1MYwgSKDgRurOd7XbQNUfMfa",
       name: "Love and Death",
       price: 3500,
