@@ -6,6 +6,7 @@ import { useShoppingCart } from "@/hooks/use-shopping-cart";
 import { formatCurrency } from "@/lib/utils";
 import { Rating } from "@/components/index";
 import { blurPlaceholderImg } from "@/lib/placeholder";
+import { smallImage } from "../lib/images";
 
 const ProductCard = (props) => {
   const { cartCount, addItem } = useShoppingCart();
@@ -60,10 +61,10 @@ const ProductCard = (props) => {
       {/* Product's image */}
       <div className="relative w-full h-64">
         <Image
-          src={props.image}
+          src={smallImage(props.image)}
           alt={props.name}
           fill
-          style={{ objectFit: "contain" }}
+          style={{ objectFit: "cover" }}
           placeholder={"blur"}
           blurDataURL={blurPlaceholderImg}
         />
