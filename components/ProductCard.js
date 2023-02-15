@@ -64,7 +64,7 @@ const ProductCard = (props) => {
           src={smallImage(props.image)}
           alt={props.name}
           fill
-          style={{ objectFit: "cover" }}
+          style={{ objectFit: "contain" }}
           placeholder={"blur"}
           blurDataURL={blurPlaceholderImg}
         />
