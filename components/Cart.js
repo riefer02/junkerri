@@ -81,7 +81,7 @@ const Cart = () => {
                 >
                   <div className="relative w-20 h-20 group-hover:scale-110 transition-transform">
                     <Image
-                      src={product.image}
+                      src={smallImage(product.image)}
                       alt={product.name}
                       fill
                       style={{ objectFit: "contain" }}
