@@ -13,6 +13,7 @@ import {
   PlusSmallIcon,
 } from "@heroicons/react/24/solid";
 import { blurPlaceholderImg } from "@/lib/placeholder";
+import { smallImage } from "@/lib/images";
 
 const Cart = () => {
   const { cartDetails, totalPrice, cartCount, addItem, removeItem, clearCart } =
