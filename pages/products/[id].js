@@ -8,6 +8,7 @@ import { formatCurrency } from "@/lib/utils";
 import { MinusSmallIcon, PlusSmallIcon } from "@heroicons/react/24/solid";
 import { useModal } from "@/hooks/use-modal";
 import { blurPlaceholderImg } from "@/lib/placeholder";
+import { smallImage } from "@/lib/images";
 
 import products from "products";
 
@@ -74,7 +75,7 @@ const Product = (props) => {
             }
           >
             <Image
-              src={props.image}
+              src={smallImage(props.image)}
               alt={props.name}
               fill
               style={{ objectFit: "contain" }}
