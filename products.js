@@ -52,6 +52,19 @@ const products = {
         rate: 4.5,
       },
     },
+    {
+      id: "price_1McbduKDgRurOd7XQsMnF5QQ",
+      name: "Flat Feelings",
+      quantity: 5,
+      size: '8 x 10',
+      price: 3500,
+      currency: "USD",
+      image: "/art/flat-feelings.jpg",
+      rating: {
+        count: 85,
+        rate: 4.5,
+      },
+    },
   ],
   production: [
     {

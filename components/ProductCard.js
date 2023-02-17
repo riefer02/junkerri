@@ -59,7 +59,7 @@ const ProductCard = (props) => {
       className="border rounded-md p-6 group"
     >
       {/* Product's image */}
-      <div className="relative w-full h-80">
+      <div className="relative w-full h-80 shadow-sm">
         <Image
           src={smallImage(props.image)}
           alt={props.name}
