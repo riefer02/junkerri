@@ -200,7 +200,7 @@ const products = {
     {
       id: "price_1Mcc4XKDgRurOd7XpwYxqLVQ",
       name: "Austin Post Card",
-      quantity: 0,
+      quantity: 10,
       size: "5 x 7",
       price: 3500,
       currency: "USD",
