@@ -59,7 +59,7 @@ const ProductCard = (props) => {
       className="border rounded-md p-6 group"
     >
       {/* Product's image */}
-      <div className="relative w-full h-64">
+      <div className="relative w-full h-80 shadow-sm">
         <Image
           src={smallImage(props.image)}
           alt={props.name}
@@ -74,6 +74,9 @@ const ProductCard = (props) => {
       <div className="mt-4 sm:mt-8">
         <p className="font-semibold text-lg capitalize">{props.name}</p>
         {/* <Rating rate={props?.rating?.rate} count={props?.rating?.count} /> */}
+        {props.size && (
+          <p className="text-sm text-gray-500">{props.size} in.</p>
+        )}
       </div>
 
       {/* Price + CTA */}
