@@ -123,7 +123,7 @@ const products = {
       id: "price_1MYwdeKDgRurOd7XaUJ75YVv",
       name: "After Hours",
       quantity: 5,
-      size: "12 x 12",
+      size: "8 x 10",
       price: 3500,
       currency: "USD",
       image: "/art/after-hours.jpg",
@@ -202,7 +202,7 @@ const products = {
       name: "Austin Post Card",
       quantity: 10,
       size: "5 x 7",
-      price: 3500,
+      price: 580,
       currency: "USD",
       image: "/art/austin-post-card.jpg",
       rating: {
