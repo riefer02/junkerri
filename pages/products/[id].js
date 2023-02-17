@@ -60,6 +60,10 @@ const Product = (props) => {
     <>
       <Head>
         <title>{props.name} | Junkerri</title>
+        <meta
+          name="description"
+          content={`${props.name}, Limited Edition of ${props.quantity}, Signed and Numbered, ${props.size} in., Digital Art by Aastha Karki`}
+        />
       </Head>
       <div className="container lg:max-w-screen-lg mx-auto py-12 px-4 sm:px-6">
         <div className="flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0 md:space-x-12">
