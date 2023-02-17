@@ -2,7 +2,9 @@ const products = {
   development: [
     {
       id: "price_1MUHhrKDgRurOd7XxvaL3k9g",
-      name: "Land Locked Blues",
+      name: "Landlocked Blues",
+      quantity: 10,
+      size: '12 x 12',
       price: 3500,
       currency: "USD",
       image: "/art/land-locked-blues.jpg",
@@ -15,6 +17,8 @@ const products = {
       id: "price_1MWmvDKDgRurOd7Xp4GtsZxy",
       name: "Transformers",
       price: 3500,
+      quantity: 10,
+      size: '12 x 12',
       currency: "USD",
       image: "/art/transformers.jpg",
       rating: {
@@ -25,6 +29,8 @@ const products = {
     {
       id: "price_1MWmupKDgRurOd7XgokBdVWL",
       name: "Forsaken Magic",
+      quantity: 5,
+      size: '12 x 12',
       price: 3500,
       currency: "USD",
       image: "/art/forsaken-magic.jpg",
@@ -36,6 +42,8 @@ const products = {
     {
       id: "price_1MWmtwKDgRurOd7X22avXwdd",
       name: "Wistful Whispers",
+      quantity: 10,
+      size: '12 x 12',
       price: 3500,
       currency: "USD",
       image: "/art/wistful-whispers.jpg",
@@ -48,7 +56,9 @@ const products = {
   production: [
     {
       id: "price_1MYgmgKDgRurOd7XyDJBzREp",
-      name: "Land Locked Blues",
+      name: "Landlocked Blues",
+      quantity: 10,
+      size: '12 x 12',
       price: 3500,
       currency: "USD",
       image: "/art/land-locked-blues.jpg",
@@ -60,6 +70,8 @@ const products = {
     {
       id: "price_1MYgnwKDgRurOd7XbmZo2gqE",
       name: "Transformers",
+      quantity: 5,
+      size: '12 x 12',
       price: 3500,
       currency: "USD",
       image: "/art/transformers.jpg",
@@ -71,6 +83,8 @@ const products = {
     {
       id: "price_1MYgohKDgRurOd7XUZ89Nr7d",
       name: "Forsaken Magic",
+      quantity: 5,
+      size: '12 x 12',
       price: 3500,
       currency: "USD",
       image: "/art/forsaken-magic.jpg",
@@ -82,6 +96,8 @@ const products = {
     {
       id: "price_1MYgpSKDgRurOd7XOuJ07e5N",
       name: "Wistful Whispers",
+      quantity: 5,
+      size: '12 x 12',
       price: 3500,
       currency: "USD",
       image: "/art/wistful-whispers.jpg",
@@ -93,6 +109,8 @@ const products = {
     {
       id: "price_1MYwdeKDgRurOd7XaUJ75YVv",
       name: "After Hours",
+      quantity: 5,
+      size: '12 x 12',
       price: 3500,
       currency: "USD",
       image: "/art/after-hours.jpg",
@@ -104,6 +122,8 @@ const products = {
     {
       id: "price_1MYwf0KDgRurOd7XBm6haIlp",
       name: "Interlude",
+      quantity: 5,
+      size: '12 x 12',
       price: 3500,
       currency: "USD",
       image: "/art/interlude.jpg",
@@ -115,6 +135,8 @@ const products = {
     {
       id: "price_1MYwfgKDgRurOd7X9xmajQtl",
       name: "Flat Feelings",
+      quantity: 5,
+      size: '8 x 10',
       price: 3500,
       currency: "USD",
       image: "/art/flat-feelings.jpg",
@@ -126,6 +148,8 @@ const products = {
     {
       id: "price_1MYwgSKDgRurOd7XbQNUfMfa",
       name: "Love and Death",
+      quantity: 5,
+      size: '12 x 12',
       price: 3500,
       currency: "USD",
       image: "/art/love-and-death.jpg",

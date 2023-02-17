@@ -87,13 +87,20 @@ const Product = (props) => {
           {/* Product's details */}
           <div className="flex-1 max-w-md border border-opacity-50 rounded-md shadow-lg p-6 w-full">
             <h2 className="text-3xl font-semibold">{props.name}</h2>
-            <p>
+
+            <p className="mb-2">
               <span className="text-gray-500">Availability:</span>{" "}
               <span className="font-semibold">In stock</span>
             </p>
 
+            <div className="flex items-start lg:text-lg justify-center text-gray-600">
+              {props.quantity &&
+                `Limited Edition of ${props.quantity}, Signed and Numbered`}
+              {props.size && `, ${props.size} in.`}
+            </div>
+
             {/* Price */}
-            <div className="mt-8 border-t pt-4">
+            <div className="mt-4 md:mt-8 border-t pt-4">
               <p className="text-gray-500">Price:</p>
               <p className="text-xl font-semibold">
                 {formatCurrency(props.price)}
