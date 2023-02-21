@@ -13,7 +13,10 @@ export default async function handler(req, res) {
         cancel_url: `${req.headers.origin}/cart`,
         allow_promotion_codes: true,
         shipping_address_collection: { allowed_countries: ["US"] },
-        shipping_options: [{ shipping_rate: process.env.STRIPE_SHIPPING_RATE }],
+        shipping_options: [
+          { shipping_rate: process.env.STRIPE_SHIPPING_RATE },
+          { shipping_rate: process.env.STRIPE_FREE_SHIPPING_RATE },
+        ],
       });
 
       res.status(200).json(session);
