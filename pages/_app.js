@@ -5,6 +5,7 @@ import { ModalProvider } from "@/hooks/use-modal";
 
 import { Footer } from "@/components/index";
 import { Modal } from "@/components/Modal";
+import { Banner } from "@/components/Banner";
 import { Toaster } from "react-hot-toast";
 
 import { Poppins } from "@next/font/google";
@@ -59,6 +60,7 @@ function MyApp({ Component, pageProps }) {
       <CartProvider>
         <ModalProvider>
           <div className={`min-h-screen flex flex-col`}>
+            <Banner />
             <Header />
             <main className="flex-grow">
               <Component {...pageProps} />
