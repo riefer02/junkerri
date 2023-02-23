@@ -68,6 +68,19 @@ const products = {
   ],
   production: [
     {
+      id: "price_1MenWxKDgRurOd7XbRCtoPrB",
+      name: "Everything Was Beautiful and Nothing Hurt",
+      quantity: 10,
+      size: "12 x 12",
+      price: 3500,
+      currency: "USD",
+      image: "/art/everything-was-beautiful-and-nothing-hurt.jpg",
+      rating: {
+        count: 85,
+        rate: 4.5,
+      },
+    },
+    {
       id: "price_1MYgmgKDgRurOd7XyDJBzREp",
       name: "Landlocked Blues",
       quantity: 10,
