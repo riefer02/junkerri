@@ -14,7 +14,8 @@ const Header = () => {
         <Logo />
         <div className="flex items-center justify-end gap-4 md:gap-8">
           <nav className="hidden sm:block">
-            <ul className="text-lg text-gray-700">
+            <ul className="text-lg text-gray-700 flex gap-4">
+              <Link href="/">Home</Link>
               <Link href="/about">About</Link>
             </ul>
           </nav>

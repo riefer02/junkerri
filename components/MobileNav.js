@@ -12,13 +12,17 @@ const navLinks = [
     label: "About",
     href: "/about",
   },
+  {
+    label: "Cart",
+    href: "/cart",
+  },
 ];
 
 export default function MobileNav() {
   useLockBodyScroll();
 
   return (
-    <div className="grid grid-rows-6 w-full h-screen bg-white transition ease-linear absolute top-0 left-0 z-10 p-4">
+    <div className="grid grid-rows-6 w-full fixed h-screen bottom-0 left-0 z-10  bg-white transition ease-linear px-4 pt-[40px]">
       <div className="ml-auto">
         <Hamburger />
       </div>
