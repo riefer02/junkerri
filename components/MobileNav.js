@@ -22,7 +22,7 @@ export default function MobileNav() {
   useLockBodyScroll();
 
   return (
-    <div className="grid grid-rows-6 w-full fixed h-[100dvh] bottom-0 left-0 z-10  bg-white transition ease-linear px-4 pt-[40px]">
+    <div className="grid grid-rows-6 w-full fixed h-[100dvh] min-h-[100%] bottom-0 left-0 z-10  bg-white transition ease-linear px-4 pt-[40px]">
       <div className="ml-auto">
         <Hamburger />
       </div>
