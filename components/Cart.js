@@ -60,7 +60,7 @@ const Cart = () => {
               Your shopping cart is empty.
             </h2>
             <p className="mt-1 text-xl">
-              Check out our awesome plants{" "}
+              Check out Junkerri art{" "}
               <Link href="/" className="text-red-500 underline">
                 here!
               </Link>
