@@ -5,7 +5,7 @@ export default function Home() {
     <>
       <NextHead />
       <div className="container xl:max-w-screen-xl mx-auto py-12 px-6">
-        <div className="text-lg md:text-xl lg:text-2xl text-gray-700">
+        <div className="text-lg md:text-xl text-gray-700">
           <p className="mb-4">
             Aastha Kumari Karki is a multidisciplinary artist/musician based in
             Austin, TX who creates under the name Junkerri. She has dedicated
