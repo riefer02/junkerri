@@ -14,19 +14,21 @@ export default async function handler(req, res) {
         pass: process.env.SMTP_PASSWORD,
       },
     });
-
-    await transporter.sendMail(
-      {
-        from: process.env.EMAIL_FROM,
-        to: process.env.EMAIL_TO,
-        subject: `Junkerri Art Contact Form | ${name}`,
-        text: message,
-        html: `<p>${message}</p><p>From: ${name} &lt;${email}&gt;</p>`,
-      },
-      function (err) {
-        if (err) console.log(err);
-      }
-    );
+    
+    await new Promise((resolve, reject) => {
+      transporter.sendMail(
+        {
+          from: process.env.EMAIL_FROM,
+          to: process.env.EMAIL_TO,
+          subject: `Junkerri Art Contact Form | ${name}`,
+          text: message,
+          html: `<p>${message}</p><p>From: ${name} &lt;${email}&gt;</p>`,
+        },
+        function (err) {
+          if (err) console.log(err);
+        }
+      );
+    });
 
     res.status(200).json({ message: "Email sent successfully" });
   } catch (error) {
