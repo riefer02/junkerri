@@ -5,6 +5,7 @@ export default async function handler(req, res) {
 
   try {
     const transporter = nodemailer.createTransport({
+      name: process.env.SMPT_HOST,
       host: process.env.SMTP_HOST,
       port: process.env.SMTP_PORT,
       secure: true,
