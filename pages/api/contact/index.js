@@ -15,20 +15,19 @@ export default async function handler(req, res) {
       },
     });
 
-    await new Promise((resolve, reject) => {
-      return transporter.sendMail(
-        {
-          from: process.env.EMAIL_FROM,
-          to: process.env.EMAIL_TO,
-          subject: `Junkerri Art Contact Form | ${name}`,
-          text: message,
-          html: `<p>${message}</p><p>From: ${name} &lt;${email}&gt;</p>`,
-        },
-        function (err) {
-          if (err) console.log(err);
-        }
-      );
-    });
+    transporter.sendMail(
+      {
+        from: process.env.EMAIL_FROM,
+        to: process.env.EMAIL_TO,
+        subject: `Junkerri Art Contact Form | ${name}`,
+        text: message,
+        html: `<p>${message}</p><p>From: ${name} &lt;${email}&gt;</p>`,
+      },
+      function (err, info) {
+        if (err) console.log(err);
+        if (info) console.log(info);
+      }
+    );
 
     res.status(200).json({ message: "Email sent successfully" });
   } catch (error) {
