@@ -11,17 +11,6 @@ export default async function handler(req, res) {
   const { name, email, message } = JSON.parse(req.body);
 
   try {
-    // const transporter = nodemailer.createTransport({
-    //   name: process.env.DOMAIN_NAME,
-    //   host:
-    //   port: process.env.SMTP_PORT,
-    //   secure: true,
-    //   auth: {
-    //     user:
-    //     pass:
-    //   },
-    // });
-
     const response = await client.sendAsync({
       text: `<p>${message}</p><p>From: ${name} &lt;${email}&gt;</p>`,
       from: process.env.EMAIL_FROM,
