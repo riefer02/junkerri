@@ -14,9 +14,9 @@ export default async function handler(req, res) {
         pass: process.env.SMTP_PASSWORD,
       },
     });
-    
+
     await new Promise((resolve, reject) => {
-      transporter.sendMail(
+      return transporter.sendMail(
         {
           from: process.env.EMAIL_FROM,
           to: process.env.EMAIL_TO,
