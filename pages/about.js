@@ -3,9 +3,12 @@ import NextHead from "@/components/Head";
 export default function Home() {
   return (
     <>
-      <NextHead />
+      <NextHead
+        title="About Junkerri Art"
+        description="Learn about Aastha Kumari Karki who is a multidisciplinary artist/musician based in Austin, TX who creates under the name Junkerri. She has dedicated her career to creative expression and community service."
+      />
       <div className="container xl:max-w-screen-xl mx-auto py-12 px-6">
-        <div className="text-lg md:text-xltext-2xl">
+        <div className="text-lg md:text-xl text-gray-700">
           <p className="mb-4">
             Aastha Kumari Karki is a multidisciplinary artist/musician based in
             Austin, TX who creates under the name Junkerri. She has dedicated
