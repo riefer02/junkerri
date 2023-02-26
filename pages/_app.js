@@ -76,11 +76,11 @@ function MyApp({ Component, pageProps }) {
         />
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
-      <style jsx global>{`
+      {/* <style jsx global>{`
         html {
           font-family: ${poppins.style.fontFamily};
         }
-      `}</style>
+      `}</style> */}
       <CartProvider>
         <ModalProvider>
           <NavigationContext.Provider
