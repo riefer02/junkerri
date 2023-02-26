@@ -17,7 +17,7 @@ const Footer = () => (
     <p className="text-gray-500 hover:text-current">
       <a href="https://www.riefer.io" target="_blank" rel="noopener noreferrer">
         Made with{" "}
-        <HeartIcon className="inline-block w-4 h-4 -mt-1 text-red-600 animate-pulse" />{" "}
+        <HeartIcon className="inline-block w-4 h-4 -mt-1 text-rose-500 animate-pulse" />{" "}
         by riefer.io
       </a>{" "}
       &#169; Junkerri {currentYear}
