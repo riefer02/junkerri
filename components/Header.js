@@ -17,6 +17,7 @@ const Header = () => {
             <ul className="text-lg text-gray-700 flex gap-4">
               <Link href="/">Home</Link>
               <Link href="/about">About</Link>
+              <Link href="/contact">Contact</Link>
             </ul>
           </nav>
           <Link

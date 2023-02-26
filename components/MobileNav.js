@@ -16,6 +16,10 @@ const navLinks = [
     label: "Cart",
     href: "/cart",
   },
+  {
+    label: "Contact",
+    href: "/contact",
+  },
 ];
 
 export default function MobileNav() {
