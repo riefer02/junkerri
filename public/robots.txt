@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /private/
+Disallow: /admin/
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /temp/
+Disallow: /uploads/
+Disallow: /download/
+Disallow: /search/
