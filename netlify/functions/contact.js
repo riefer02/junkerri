@@ -15,7 +15,7 @@ exports.handler = async function (event, context) {
       },
     });
 
-    transporter.sendMail(
+    await transporter.sendMail(
       {
         from: process.env.EMAIL_FROM,
         to: process.env.EMAIL_TO,
