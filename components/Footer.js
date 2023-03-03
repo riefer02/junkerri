@@ -14,11 +14,12 @@ const Footer = () => (
         <FaInstagram className="text-3xl text-rose-500" />
       </a>
     </div>
-    <p className="text-gray-500 hover:text-current">
+    <p className="text-gray-500">
       <a
         href="https://www.instagram.com/riefer02/"
         target="_blank"
         rel="noopener noreferrer"
+        className="cursor-pointer"
       >
         Made with{" "}
         <HeartIcon className="inline-block w-4 h-4 -mt-1 text-red-600 animate-pulse" />{" "}
