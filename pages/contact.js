@@ -73,7 +73,7 @@ const ContactForm = () => {
               Message:
             </label>
             <textarea
-              className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline min-h-[200px]"
               id="message"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
