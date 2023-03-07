@@ -2,11 +2,11 @@ import Head from "next/head";
 
 const NextHead = ({ title, description, keywords, image, author }) => {
   const defaultDescription =
-    "Discover the vibrant and captivating world of Junkerri Art, brought to life by the talented Nepali artist, Aastha Karki. Immerse yourself in Aastha's playful abstract works that seamlessly blend color and form, creating an enthralling experience for all who behold them. Explore the unique and beautiful creations of Junkerri Art today.";
+    "Discover the vibrant and captivating world of Junkerri Art, brought to life by Nepali artist, Aastha Karki. Immerse yourself in Aastha's playful abstract works.";
   const defaultKeywords =
     "Junkerri Art, Aastha Karki, Nepali artist, playful abstract, captivating, enthralling, color, form, unique, beautiful creations";
   const defaultTitle =
-    "Junkerri Art | Playful Abstract Creations by Nepali Artist Aastha Karki";
+    "Junkerri Art | Playful Abstract Art by Nepali Artist Aastha Karki";
 
   let url;
   typeof window !== "undefined"
