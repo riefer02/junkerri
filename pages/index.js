@@ -13,6 +13,13 @@ export default function Home() {
   return (
     <>
       <NextHead />
+      <h1 className="hidden">
+        Junkerri Art | Playful Abstract Creations by Nepali Artist Aastha Karki
+      </h1>
+      <h2 className="hidden">
+        Discover the vibrant and captivating world of Junkerri Art, brought to
+        life by the talented Nepali artist, Aastha Karki.
+      </h2>
       <div className="container xl:max-w-screen-xl mx-auto py-12 px-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
           {products.map((product) => (
