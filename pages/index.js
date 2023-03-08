@@ -7,7 +7,7 @@ const ProductCard = dynamic(() => import("@/components/ProductCard"), {
 
 import products from "products";
 
-export default function Home() {
+export default function Home({ products }) {
   const [disabled, setDisabled] = useState(false);
 
   return (
@@ -35,4 +35,17 @@ export default function Home() {
       </div>
     </>
   );
+}
+
+export async function getStaticProps() {
+  // Fetch products from an API or database
+  const res = await fetch("https://example.com/api/products");
+  const products = await res.json();
+
+  // Pass products as props to the component
+  return {
+    props: {
+      products,
+    },
+  };
 }
