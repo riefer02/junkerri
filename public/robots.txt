@@ -1,2 +1,9 @@
+# *
 User-agent: *
 Allow: /
+
+# Host
+Host: https://junkerri.com
+
+# Sitemaps
+Sitemap: https://junkerri.com/sitemap.xml
