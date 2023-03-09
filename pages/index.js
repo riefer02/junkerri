@@ -5,7 +5,7 @@ const ProductCard = dynamic(() => import("@/components/ProductCard"), {
   ssr: false,
 });
 
-import products from "products";
+import { baseUrl } from "@/lib/utils";
 
 export default function Home({ products }) {
   const [disabled, setDisabled] = useState(false);
@@ -39,7 +39,7 @@ export default function Home({ products }) {
 
 export async function getStaticProps() {
   // Fetch products from an API or database
-  const res = await fetch("https://example.com/api/products");
+  const res = await fetch(`${baseUrl}api/products`);
   const products = await res.json();
 
   // Pass products as props to the component

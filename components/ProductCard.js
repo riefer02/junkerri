@@ -7,6 +7,7 @@ import { formatCurrency } from "@/lib/utils";
 import { Rating } from "@/components/index";
 import { blurPlaceholderImg } from "@/lib/placeholder";
 import { smallImage } from "../lib/images";
+import { slugifyString } from "@/lib/utils";
 
 const ProductCard = (props) => {
   const { cartCount, addItem } = useShoppingCart();
@@ -55,7 +56,7 @@ const ProductCard = (props) => {
 
   return (
     <Link
-      href={`/products/${props.id}`}
+      href={`/products/${props.slug}`}
       className="border rounded-md p-6 group"
     >
       {/* Product's image */}

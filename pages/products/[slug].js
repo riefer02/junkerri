@@ -9,8 +9,9 @@ import { MinusSmallIcon, PlusSmallIcon } from "@heroicons/react/24/solid";
 import { useModal } from "@/hooks/use-modal";
 import { blurPlaceholderImg } from "@/lib/placeholder";
 import { smallImage } from "@/lib/images";
+import { baseUrl } from "@/lib/utils";
 
-import products from "products";
+// import products from "products";
 
 const Product = (props) => {
   const router = useRouter();
@@ -52,7 +53,7 @@ const Product = (props) => {
   return router.isFallback ? (
     <>
       <Head>
-        <title>Loading...</title>
+        {/* <title>Loading...</title> */}
       </Head>
       <p className="text-center text-lg py-12">Loading...</p>
     </>
@@ -149,10 +150,13 @@ const Product = (props) => {
 };
 
 export async function getStaticPaths() {
+  const res = await fetch(`${baseUrl}api/products`);
+  const products = await res.json();
+
   return {
     // Existing posts are rendered to HTML at build time
-    paths: Object.keys(products)?.map((id) => ({
-      params: { id },
+    paths: Object.keys(products)?.map((slug) => ({
+      params: { slug },
     })),
     // Enable statically generating additional pages
     fallback: true,
@@ -161,7 +165,10 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   try {
-    const props = products?.find((product) => product.id === params.id) ?? {};
+    const res = await fetch(`${baseUrl}api/products`);
+    const products = await res.json();
+    const props =
+      products?.find((product) => product.slug === params.slug) ?? {};
     return {
       props,
       // Next.js will attempt to re-generate the page:
