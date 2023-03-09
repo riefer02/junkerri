@@ -9,7 +9,7 @@ import { MinusSmallIcon, PlusSmallIcon } from "@heroicons/react/24/solid";
 import { useModal } from "@/hooks/use-modal";
 import { blurPlaceholderImg } from "@/lib/placeholder";
 import { smallImage } from "@/lib/images";
-import { baseUrl } from "@/lib/utils";
+import { getProducts } from "@/lib/products";
 
 // import products from "products";
 
@@ -52,9 +52,7 @@ const Product = (props) => {
 
   return router.isFallback ? (
     <>
-      <Head>
-        {/* <title>Loading...</title> */}
-      </Head>
+      <Head>{/* <title>Loading...</title> */}</Head>
       <p className="text-center text-lg py-12">Loading...</p>
     </>
   ) : (
@@ -150,8 +148,7 @@ const Product = (props) => {
 };
 
 export async function getStaticPaths() {
-  const res = await fetch(`${baseUrl}api/products`);
-  const products = await res.json();
+  const products = getProducts();
 
   return {
     // Existing posts are rendered to HTML at build time
@@ -165,8 +162,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   try {
-    const res = await fetch(`${baseUrl}api/products`);
-    const products = await res.json();
+    const products = getProducts();
     const props =
       products?.find((product) => product.slug === params.slug) ?? {};
     return {

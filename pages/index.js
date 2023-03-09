@@ -1,11 +1,10 @@
 import { useState } from "react";
 import dynamic from "next/dynamic";
 import NextHead from "@/components/Head";
+import { getProducts } from "@/lib/products";
 const ProductCard = dynamic(() => import("@/components/ProductCard"), {
   ssr: false,
 });
-
-import { baseUrl } from "@/lib/utils";
 
 export default function Home({ products }) {
   const [disabled, setDisabled] = useState(false);
@@ -38,9 +37,8 @@ export default function Home({ products }) {
 }
 
 export async function getStaticProps() {
-  // Fetch products from an API or database
-  const res = await fetch(`${baseUrl}api/products`);
-  const products = await res.json();
+  // Fetch products from an API or database or file
+  const products = getProducts();
 
   // Pass products as props to the component
   return {
