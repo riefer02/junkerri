@@ -156,6 +156,7 @@
   {
     "id": "price_1Mcc4XKDgRurOd7XpwYxqLVQ",
     "name": "Austin Post Card",
+    "slug": "austin-post-card",
     "quantity": 10,
     "size": "5 x 7",
     "price": 580,
