@@ -55,7 +55,7 @@ const ProductCard = (props) => {
 
   return (
     <Link
-      href={`/products/${props.id}`}
+      href={`/products/${props.slug}`}
       className="border rounded-md p-6 group"
     >
       {/* Product's image */}

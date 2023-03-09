@@ -56,7 +56,7 @@ const Cart = () => {
           </>
         ) : (
           <>
-            <h2 className="text-4xl font-semibold">
+            <h2 className="text-4xl font-semibold mb-4">
               Your shopping cart is empty.
             </h2>
             <p className="mt-1 text-xl">

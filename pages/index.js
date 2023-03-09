@@ -1,13 +1,12 @@
 import { useState } from "react";
 import dynamic from "next/dynamic";
 import NextHead from "@/components/Head";
+import { getProducts } from "@/lib/products";
 const ProductCard = dynamic(() => import("@/components/ProductCard"), {
   ssr: false,
 });
 
-import products from "products";
-
-export default function Home() {
+export default function Home({ products }) {
   const [disabled, setDisabled] = useState(false);
 
   return (
@@ -35,4 +34,16 @@ export default function Home() {
       </div>
     </>
   );
+}
+
+export async function getStaticProps() {
+  // Fetch products from an API or database or file
+  const products = getProducts();
+
+  // Pass products as props to the component
+  return {
+    props: {
+      products,
+    },
+  };
 }
