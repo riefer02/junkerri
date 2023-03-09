@@ -7,7 +7,6 @@ import { formatCurrency } from "@/lib/utils";
 import { Rating } from "@/components/index";
 import { blurPlaceholderImg } from "@/lib/placeholder";
 import { smallImage } from "../lib/images";
-import { slugifyString } from "@/lib/utils";
 
 const ProductCard = (props) => {
   const { cartCount, addItem } = useShoppingCart();

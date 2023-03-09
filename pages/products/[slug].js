@@ -11,8 +11,6 @@ import { blurPlaceholderImg } from "@/lib/placeholder";
 import { smallImage } from "@/lib/images";
 import { getProducts } from "@/lib/products";
 
-// import products from "products";
-
 const Product = (props) => {
   const router = useRouter();
   const { cartCount, addItem } = useShoppingCart();
@@ -52,7 +50,9 @@ const Product = (props) => {
 
   return router.isFallback ? (
     <>
-      <Head>{/* <title>Loading...</title> */}</Head>
+      <Head>
+        <title>Loading...</title>{" "}
+      </Head>
       <p className="text-center text-lg py-12">Loading...</p>
     </>
   ) : (
