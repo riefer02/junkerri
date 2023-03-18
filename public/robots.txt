@@ -7,3 +7,4 @@ Host: https://junkerri.com
 
 # Sitemaps
 Sitemap: https://junkerri.com/sitemap.xml
+Sitemap: https://junkerri.com/products-sitemap.xml
