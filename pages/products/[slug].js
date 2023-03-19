@@ -151,12 +151,12 @@ export async function getStaticPaths() {
   const products = getProducts();
 
   return {
-    // Existing posts are rendered to HTML at build time
-    paths: Object.keys(products)?.map((slug) => ({
+    // Existing products are rendered to HTML at build time
+    paths: products.map(({ slug }) => ({
       params: { slug },
     })),
     // Enable statically generating additional pages
-    fallback: true,
+    fallback: false,
   };
 }
 
