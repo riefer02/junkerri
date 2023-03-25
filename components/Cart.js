@@ -77,7 +77,7 @@ const Cart = () => {
               >
                 {/* Image + Name */}
                 <Link
-                  href={`/products/${product.id}`}
+                  href={`/products/${product.slug}`}
                   className="flex items-center space-x-4 group"
                 >
                   <div className="relative w-20 h-20 group-hover:scale-110 transition-transform">
