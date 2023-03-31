@@ -71,9 +71,10 @@ const NextHead = ({ title, description, keywords, image, author }) => {
       />
       <meta name="twitter:image" content={image || ogURL} />
       {schemaMarkup && (
-        <script type="application/ld+json">
-          {JSON.stringify(schemaMarkup)}
-        </script>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
+        />
       )}
     </Head>
   );
