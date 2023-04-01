@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "tailwindcss/tailwind.css";
 import Head from "next/head";
+import Script from "next/script";
 import { CartProvider } from "@/hooks/use-shopping-cart";
 import { ModalProvider } from "@/hooks/use-modal";
 import NavigationContext from "../contexts/NavigationContext";
@@ -14,6 +15,7 @@ import { Toaster } from "react-hot-toast";
 import MobileNav from "@/components/MobileNav";
 
 import { Poppins } from "@next/font/google";
+import { gtmVirtualPageView } from "../lib/gtm";
 
 const poppins = Poppins({
   weight: ["400", "700"],
@@ -45,6 +47,16 @@ function MyApp({ Component, pageProps }) {
     };
   }, [router]);
 
+  // GTM
+  useEffect(() => {
+    const mainDataLayer = {
+      pageTypeName: pageProps.page || null,
+      url: router.pathname,
+    };
+
+    gtmVirtualPageView(mainDataLayer);
+  }, [pageProps]);
+
   return (
     <>
       <Head>
@@ -75,6 +87,17 @@ function MyApp({ Component, pageProps }) {
           href="/favicon-16x16.png"
         />
         <link rel="manifest" href="/site.webmanifest" />
+        <Script
+          id="gtm"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','${process.env.NEXT_PUBLIC_GTM_ID}');`,
+          }}
+        ></Script>
       </Head>
       <style jsx global>{`
         html {
@@ -89,9 +112,7 @@ function MyApp({ Component, pageProps }) {
             <div className={`min-h-screen flex flex-col`}>
               <Banner />
               <Header />
-
               {isActive && <MobileNav />}
-
               <main className="flex-grow">
                 <Component {...pageProps} />
               </main>
