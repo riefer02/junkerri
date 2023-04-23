@@ -28,6 +28,19 @@ const Product = (props) => {
     toastId.current = toast.loading(
       `Adding ${qty} item${qty > 1 ? "s" : ""}...`
     );
+
+    if (Object.entries(currentVariation).length > 0) {
+      const variationProduct = {
+        ...props,
+        id: currentVariation.id,
+        name: `${props.name} ${currentVariation.size} ${props.unit}`,
+        price: currentVariation.price,
+        slug: props.slug + `/?variation_id=${currentVariation.id}`,
+        size: addSpaces(currentVariation.size),
+      };
+      addItem(variationProduct, qty);
+      return;
+    }
     addItem(props, qty);
   };
 
@@ -39,7 +52,7 @@ const Product = (props) => {
       const { variations } = props;
       const { variation_id } = router.query;
 
-      if (!variation_id) setCurrentVariation(variations[0]);
+      if (!variation_id) return setCurrentVariation(props.variations[0]);
 
       const [selectedVariation] = variations.filter(
         (variation) => variation.id === variation_id
