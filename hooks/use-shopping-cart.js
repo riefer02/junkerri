@@ -9,6 +9,7 @@ const initialCartValues = {
 };
 
 const addItem = (state = {}, product = null, quantity = 0) => {
+  // TODO: Handle Variations
   if (quantity <= 0 || !product) return state;
 
   let entry = state?.cartDetails?.[product.id];

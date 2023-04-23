@@ -4,13 +4,14 @@ import Image from "next/image";
 import { toast } from "react-hot-toast";
 import { useShoppingCart } from "@/hooks/use-shopping-cart";
 import { formatCurrency } from "@/lib/utils";
-import { Rating } from "@/components/index";
 import { blurPlaceholderImg } from "@/lib/placeholder";
 import { smallImage } from "../lib/images";
+import { addSpaces } from "@/lib/utils";
 
 const ProductCard = (props) => {
   const { cartCount, addItem } = useShoppingCart();
   const [adding, setAdding] = useState(false);
+  const [currentVariation, setCurrentVariation] = useState({});
 
   const toastId = useRef();
   const firstRun = useRef(true);
@@ -25,6 +26,19 @@ const ProductCard = (props) => {
       props.onClickAdd();
     }
 
+    if (Object.entries(currentVariation).length > 0) {
+      const variationProduct = {
+        ...props,
+        id: currentVariation.id,
+        name: `${props.name} ${currentVariation.size} ${props.unit}`,
+        price: currentVariation.price,
+        slug: props.slug + `/?variation_id=${currentVariation.id}`,
+        size: addSpaces(currentVariation.size),
+      };
+      addItem(variationProduct);
+      return;
+    }
+
     addItem(props);
   };
 
@@ -32,6 +46,7 @@ const ProductCard = (props) => {
     let timeout;
     if (firstRun.current) {
       firstRun.current = false;
+      if (props.variations) setCurrentVariation(props.variations[0]);
       return;
     }
 
@@ -53,9 +68,16 @@ const ProductCard = (props) => {
     return () => clearTimeout(timeout);
   }, [cartCount]);
 
+  const setVariation = (event, index) => {
+    event.preventDefault();
+    setCurrentVariation(props.variations[index]);
+  };
+
   return (
     <Link
-      href={`/products/${props.slug}`}
+      href={`/products/${props.slug}${
+        props.variations ? `/?variation_id=${currentVariation.id}` : ""
+      }`}
       className="border rounded-md p-6 group"
     >
       {/* Product's image */}
@@ -72,10 +94,34 @@ const ProductCard = (props) => {
 
       {/* Name + Rating */}
       <div className="mt-4 sm:mt-8">
-        <p className="font-semibold text-lg capitalize">{props.name}</p>
-        {/* <Rating rate={props?.rating?.rate} count={props?.rating?.count} /> */}
-        {props.size && (
-          <p className="text-sm text-gray-500">{props.size} in.</p>
+        <p className="font-semibold text-lg capitalize mb-2">{props.name}</p>
+        {props.size && !props.variations && (
+          <p className="text-sm block text-gray-500">
+            <span className="px-2 py-1 border border-rose-500 text-rose-500 rounded-2xl mr-1">
+              {props.size}
+            </span>{" "}
+            in.
+          </p>
+        )}
+        {props.variations && (
+          <div className="flex gap-2 text-sm text-gray-500 items-center justify-start">
+            <ul className="flex gap-2">
+              {props.variations.map((variation, index) => (
+                <li
+                  className={` px-2 py-1 rounded-2xl cursor-pointer hover:bg-white hover:text-rose-500 transition ease-out hover:border-rose-500 border ${
+                    currentVariation.size === variation.size
+                      ? "bg-white text-rose-500 border-rose-500"
+                      : "bg-rose-500 text-white border-transparent"
+                  }`}
+                  key={index}
+                  onClick={(event) => setVariation(event, index)}
+                >
+                  {addSpaces(variation.size)}
+                </li>
+              ))}
+            </ul>
+            <div>{props.unit}.</div>
+          </div>
         )}
       </div>
 
@@ -84,7 +130,9 @@ const ProductCard = (props) => {
         <div>
           <p className="text-gray-500">Price</p>
           <p className="text-lg font-semibold">
-            {formatCurrency(props.price, props.currency)}
+            {!props.variations && formatCurrency(props.price, props.currency)}
+            {props.variations &&
+              formatCurrency(currentVariation.price, props.currency)}
           </p>
         </div>
 
