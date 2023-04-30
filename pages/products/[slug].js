@@ -48,7 +48,7 @@ const Product = (props) => {
     setCurrentVariation(props.variations[index]);
 
   useEffect(() => {
-    if (router.isReady && props.variations.length) {
+    if (router.isReady && props.variations) {
       const { variations } = props;
       const { variation_id } = router.query;
 
