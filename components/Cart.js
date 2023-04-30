@@ -96,7 +96,6 @@ const Cart = () => {
                 </Link>
 
                 {/* Price + Actions */}
-
                 <div className="flex flex-col flex-grow justify-between sm:flex-row items-center">
                   <p className="block sm:hidden font-semibold text-base lg:text-xl group-hover:underline ">
                     {product.name}
