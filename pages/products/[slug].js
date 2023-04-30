@@ -48,7 +48,7 @@ const Product = (props) => {
     setCurrentVariation(props.variations[index]);
 
   useEffect(() => {
-    if (router.isReady && props.variations) {
+    if (router.isReady && props.variations.length) {
       const { variations } = props;
       const { variation_id } = router.query;
 
@@ -166,7 +166,7 @@ const Product = (props) => {
               <p className="text-xl font-semibold">
                 {!props.variations &&
                   formatCurrency(props.price, props.currency)}
-                {props.variations &&
+                {props.variations?.length > 0 &&
                   formatCurrency(currentVariation?.price, props.currency)}
               </p>
             </div>

@@ -168,6 +168,17 @@
     }
   },
   {
+    "id": "price_1N05r8KDgRurOd7XOXtZCQpL",
+    "name": "Time and Eternity",
+    "slug": "time-and-eternity",
+    "quantity": 10,
+    "size": "12 x 12",
+    "price": 3500,
+    "currency": "USD",
+    "unit": "IN",
+    "image": "/art/time-and-eternity.jpg"
+  },
+  {
     "id": "price_1N05xNKDgRurOd7XSfrRGtaP",
     "name": "Unearthly Delights",
     "slug": "unearthly-delights",
@@ -189,17 +200,5 @@
         "id": "price_1N05xNKDgRurOd7X60cRY3gZ"
       }
     ]
-  },
-  {
-    "id": "price_1N05r8KDgRurOd7XOXtZCQpL",
-    "name": "Time and Eternity",
-    "slug": "time-and-eternity",
-    "quantity": 10,
-    "size": "12 x 12",
-    "price": 3500,
-    "currency": "USD",
-    "unit": "IN",
-    "image": "/art/time-and-eternity.jpg",
-    "variations": []
   }
 ]
