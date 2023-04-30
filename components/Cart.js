@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
@@ -34,10 +34,6 @@ const Cart = () => {
     const stripe = await getStripe();
     await stripe.redirectToCheckout({ sessionId: id });
   };
-
-  useEffect(() => {
-    console.log({ cartDetails });
-  }, [cartDetails]);
 
   return (
     <>
