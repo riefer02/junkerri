@@ -120,7 +120,7 @@ const ProductCard = (props) => {
                 </li>
               ))}
             </ul>
-            <div>{props.unit}.</div>
+            <div className="text-gray-500">{props.unit}.</div>
           </div>
         )}
       </div>

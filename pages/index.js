@@ -2,6 +2,7 @@ import { useState } from "react";
 import dynamic from "next/dynamic";
 import NextHead from "@/components/Head";
 import { getProducts } from "@/lib/products";
+import ErrorBoundary from "@/components/ErrorBoundary";
 const ProductCard = dynamic(() => import("@/components/ProductCard"), {
   ssr: false,
 });
@@ -10,7 +11,7 @@ export default function Home({ products }) {
   const [disabled, setDisabled] = useState(false);
 
   return (
-    <>
+    <ErrorBoundary>
       <NextHead />
       <h1 className="hidden">
         Junkerri Art | Playful Abstract Creations by Nepali Artist Aastha Karki
@@ -32,7 +33,7 @@ export default function Home({ products }) {
           ))}
         </div>
       </div>
-    </>
+    </ErrorBoundary>
   );
 }
 
