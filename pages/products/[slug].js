@@ -144,10 +144,10 @@ const Product = (props) => {
                 <ul className="flex gap-2">
                   {props.variations.map((variation, index) => (
                     <li
-                      className={`px-2 py-1 rounded-2xl cursor-pointer hover:bg-white hover:text-rose-500 transition ease-out hover:border-rose-500 border ${
+                      className={`px-2 py-1 rounded-2xl cursor-pointer hover:bg-rose-500 hover:text-white transition ease-out hover:border-rose-500 border ${
                         currentVariation?.size === variation?.size
-                          ? "bg-white text-rose-500 border-rose-500"
-                          : "bg-rose-500 text-white border border-rose-500"
+                          ? "bg-rose-500 text-white border-rose-500"
+                          : "bg-white text-rose-500 border-gray-300"
                       }`}
                       key={index}
                       onClick={(event) => setVariation(event, index)}
