@@ -78,16 +78,16 @@
     "price": 6500,
     "currency": "USD",
     "image": "/art/unearthly-delights.jpg",
-    "unit": "in",
+    "unit": "IN",
     "variations": [
       {
-        "price": 6500,
-        "id": "price_1N068bKDgRurOd7XMEiNWJWi",
+        "price": 7000,
+        "id": "price_1N068bKDgRurOd7XWTpIvIt9",
         "size": "16x20"
       },
       {
         "price": 3500,
-        "id": "price_1N068bKDgRurOd7XWTpIvIt9",
+        "id": "price_1N068bKDgRurOd7XMEiNWJWi",
         "size": "8x10"
       }
     ]

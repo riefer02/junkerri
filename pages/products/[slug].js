@@ -147,7 +147,7 @@ const Product = (props) => {
                       className={`px-2 py-1 rounded-2xl cursor-pointer hover:bg-white hover:text-rose-500 transition ease-out hover:border-rose-500 border ${
                         currentVariation?.size === variation?.size
                           ? "bg-white text-rose-500 border-rose-500"
-                          : "bg-rose-500 text-white border-transparent"
+                          : "bg-rose-500 text-white border border-rose-500"
                       }`}
                       key={index}
                       onClick={(event) => setVariation(event, index)}

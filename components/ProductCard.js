@@ -97,21 +97,21 @@ const ProductCard = (props) => {
         <p className="font-semibold text-lg capitalize mb-2">{props.name}</p>
         {props.size && !props.variations && (
           <p className="text-sm block text-gray-500">
-            <span className="px-2 py-1 border border-rose-500 text-rose-500 rounded-2xl mr-1">
+            <span className="px-2 py-1 border border-rose-500 text-white bg-rose-500 rounded-2xl mr-1">
               {props.size}
             </span>{" "}
-            in.
+            IN.
           </p>
         )}
         {props.variations && (
-          <div className="flex gap-2 text-sm text-gray-500 items-center justify-start">
+          <div className="flex gap-2 text-sm text-gray-400 items-center justify-start">
             <ul className="flex gap-2">
               {props.variations.map((variation, index) => (
                 <li
-                  className={` px-2 py-1 rounded-2xl cursor-pointer hover:bg-white hover:text-rose-500 transition ease-out hover:border-rose-500 border ${
+                  className={` px-2 py-1 rounded-2xl cursor-pointer hover:bg-rose-500 hover:text-white transition ease-out hover:border-rose-500 border ${
                     currentVariation.size === variation.size
-                      ? "bg-white text-rose-500 border-rose-500"
-                      : "bg-rose-500 text-white border-transparent"
+                      ? "bg-rose-500 text-white border-rose-500"
+                      : "bg-white text-rose-500 border-gray-300"
                   }`}
                   key={index}
                   onClick={(event) => setVariation(event, index)}
