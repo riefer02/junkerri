@@ -98,7 +98,7 @@ const Cart = () => {
                 {/* Price + Actions */}
 
                 <div className="flex flex-col flex-grow justify-between sm:flex-row items-center">
-                  <p className="block sm:hidden font-semibold text-xl group-hover:underline">
+                  <p className="block sm:hidden font-semibold text-base lg:text-xl group-hover:underline ">
                     {product.name}
                   </p>
                   <div className="flex items-center w-full justify-between sm:justify-end sm:gap-8">
