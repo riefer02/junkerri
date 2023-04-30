@@ -68,5 +68,28 @@
       "count": 85,
       "rate": 4.5
     }
+  },
+  {
+    "id": "price_1N068bKDgRurOd7XMEiNWJWi",
+    "name": "Unearthly Delights",
+    "slug": "unearthly-delights",
+    "quantity": 10,
+    "size": "16 x 20",
+    "price": 6500,
+    "currency": "USD",
+    "image": "/art/unearthly-delights.jpg",
+    "unit": "IN",
+    "variations": [
+      {
+        "price": 7000,
+        "id": "price_1N068bKDgRurOd7XWTpIvIt9",
+        "size": "16x20"
+      },
+      {
+        "price": 3500,
+        "id": "price_1N068bKDgRurOd7XMEiNWJWi",
+        "size": "8x10"
+      }
+    ]
   }
 ]

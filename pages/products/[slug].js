@@ -10,6 +10,7 @@ import { useModal } from "@/hooks/use-modal";
 import { blurPlaceholderImg } from "@/lib/placeholder";
 import { smallImage } from "@/lib/images";
 import { getProducts } from "@/lib/products";
+import { addSpaces } from "@/lib/utils";
 
 const Product = (props) => {
   const router = useRouter();
@@ -19,6 +20,7 @@ const Product = (props) => {
   const [adding, setAdding] = useState(false);
   const toastId = useRef();
   const firstRun = useRef(true);
+  const [currentVariation, setCurrentVariation] = useState({});
 
   const handleOnAddToCart = () => {
     setAdding(true);
@@ -26,8 +28,39 @@ const Product = (props) => {
     toastId.current = toast.loading(
       `Adding ${qty} item${qty > 1 ? "s" : ""}...`
     );
+
+    if (Object.entries(currentVariation).length > 0) {
+      const variationProduct = {
+        ...props,
+        id: currentVariation.id,
+        name: `${props.name} ${currentVariation.size} ${props.unit}`,
+        price: currentVariation.price,
+        slug: props.slug + `/?variation_id=${currentVariation.id}`,
+        size: addSpaces(currentVariation.size),
+      };
+      addItem(variationProduct, qty);
+      return;
+    }
     addItem(props, qty);
   };
+
+  const setVariation = (event, index) =>
+    setCurrentVariation(props.variations[index]);
+
+  useEffect(() => {
+    if (router.isReady && props.variations) {
+      const { variations } = props;
+      const { variation_id } = router.query;
+
+      if (!variation_id) return setCurrentVariation(props.variations[0]);
+
+      const [selectedVariation] = variations.filter(
+        (variation) => variation.id === variation_id
+      );
+
+      setCurrentVariation(selectedVariation);
+    }
+  }, [router.isReady]);
 
   useEffect(() => {
     let timeout;
@@ -61,7 +94,7 @@ const Product = (props) => {
         <title>{props.name} | Junkerri</title>
         <meta
           name="description"
-          content={`${props.name}, Limited Edition of ${props.quantity}, Signed and Numbered, ${props.size} in., Digital Art by Aastha Karki`}
+          content={`${props.name}, Limited Edition of ${props.quantity}, Signed and Numbered, Digital Art by Aastha Karki`}
         />
       </Head>
       <div className="container lg:max-w-screen-lg mx-auto py-12 px-4 sm:px-6">
@@ -96,17 +129,45 @@ const Product = (props) => {
               <span className="font-semibold">In stock</span>
             </p>
 
-            <div className="flex items-start lg:text-lg justify-center text-gray-600">
+            <div className="flex items-start lg:text-lg justify-center text-gray-600 mb-2">
               {props.quantity &&
                 `Limited Edition of ${props.quantity}, Signed and Numbered`}
-              {props.size && `, ${props.size} in.`}
+              {props.size && !props.variations && `, ${props.size} in.`}
+
+              {props.variations &&
+                currentVariation?.size &&
+                `, ${addSpaces(currentVariation?.size)} in.`}
             </div>
+
+            {currentVariation && Object.keys(currentVariation).length > 0 && (
+              <div className="flex gap-2 text-sm text-gray-500 items-center justify-start">
+                <ul className="flex gap-2">
+                  {props.variations.map((variation, index) => (
+                    <li
+                      className={`px-2 py-1 rounded-2xl cursor-pointer hover:bg-rose-500 hover:text-white transition ease-out hover:border-rose-500 border ${
+                        currentVariation?.size === variation?.size
+                          ? "bg-rose-500 text-white border-rose-500"
+                          : "bg-white text-rose-500 border-gray-300"
+                      }`}
+                      key={index}
+                      onClick={(event) => setVariation(event, index)}
+                    >
+                      {addSpaces(variation.size)}
+                    </li>
+                  ))}
+                </ul>
+                <div>{props.unit}.</div>
+              </div>
+            )}
 
             {/* Price */}
             <div className="mt-4 md:mt-8 border-t pt-4">
               <p className="text-gray-500">Price:</p>
               <p className="text-xl font-semibold">
-                {formatCurrency(props.price)}
+                {!props.variations &&
+                  formatCurrency(props.price, props.currency)}
+                {props.variations?.length > 0 &&
+                  formatCurrency(currentVariation?.price, props.currency)}
               </p>
             </div>
 

@@ -24,6 +24,9 @@ const ContactForm = () => {
     }
   };
 
+  const inputStyles =
+    "appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 rounded-lg leading-tight outline-gray-300 focus:outline focus:shadow-outline";
+
   return (
     <>
       <NextHead
@@ -41,7 +44,7 @@ const ContactForm = () => {
               Name:
             </label>
             <input
-              className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className={inputStyles}
               id="name"
               type="text"
               value={name}
@@ -57,7 +60,7 @@ const ContactForm = () => {
               Email:
             </label>
             <input
-              className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className={inputStyles}
               id="email"
               type="email"
               value={email}
@@ -73,7 +76,7 @@ const ContactForm = () => {
               Message:
             </label>
             <textarea
-              className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline min-h-[200px]"
+              className={inputStyles}
               id="message"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
@@ -82,7 +85,7 @@ const ContactForm = () => {
           </div>
           <div className="flex items-center justify-center">
             <button
-              className="bg-rose-500 hover:bg-gray-700 text-white transition font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="bg-gray-600 hover:bg-rose-500 text-white transition font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               type="submit"
             >
               Send
